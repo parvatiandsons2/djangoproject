@@ -1,0 +1,498 @@
+{% extends 'base.html' %} {% load static %} {% load website_extras %} {% block stylearea %}
+<style></style>
+<link rel=stylesheet href="{% static 'libs/swiper/dist/css/swiper.min.css' %}"> {% endblock %} {% block contentarea %}
+<section class="slice py-5">
+    <div class=container>
+        {% if SliderData %} {% for dt in SliderData %}
+        <div class="row row-grid align-items-center">
+            <div class="col-12 col-md-5 col-lg-6 order-md-2">
+                <figure class=w-100><img alt="Image placeholder" src="{{dt.image.url}}" class="img-fluid mw-md-120">
+                </figure>
+            </div>
+            <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                <h1 class="display-4 text-center text-md-left mb-3">{{ dt.title|htmlConvert:'' }}</h1>
+                <p class="lead text-center text-md-left text-muted">{{dt.details}}</p>
+                <div class="text-center text-md-left mt-5"><a href="{{dt.highlightedBtnLink}}"
+                        class="btn btn-primary btn-icon"><span
+                            class=btn-inner--text>{{dt.highlightedBtnText}}</span><span class=btn-inner--icon> <i
+                                data-feather=arrow-right></i> </span></a><a href="{{dt.regularBtnLink}}"
+                        class="btn btn-neutral btn-icon d-none d-lg-inline-block">{{dt.regularBtnText}}</a></div>
+            </div>
+        </div>
+        {% endfor %} {% else %}
+        <div class="row row-grid align-items-center">
+            <div class="col-12 col-md-5 col-lg-6 order-md-2">
+                <figure class=w-100><img alt="Image placeholder"
+                        src="{% static 'img/svg/illustrations/illustration-1.svg' %}" class="img-fluid mw-md-120">
+                </figure>
+            </div>
+            <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                <h1 class="display-4 text-center text-md-left mb-3">Developing <strong
+                        class=text-primary>Next-Generation </strong>Services</h1>
+                <p class="lead text-center text-md-left text-muted">We are developing advanced services which help you
+                    to run your business in automation.</p>
+                <div class="text-center text-md-left mt-5"><a href="{% url 'startprojects' %}"
+                        class="btn btn-primary btn-icon"><span class=btn-inner--text>Start Project</span><span
+                            class=btn-inner--icon> <i data-feather=arrow-right></i> </span></a><a
+                        href="{% url 'about' %}" class="btn btn-neutral btn-icon d-none d-lg-inline-block">About Us</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="slice slice-lg pt-lg-6 pb-0 pb-lg-6">
+    <div class=container>
+        <div class="row justify-content-lg-end">
+            <div class="col-lg-5 text-lg-right">
+                <h6 class="display-4 text-danger">Vision</h6>
+                <p class="lh-180 mb-3">Our mission is to give customers some amazing services to convert their business
+                    into automation with less time and money spent.</p>
+            </div>
+            <div class=col-lg-6>
+                <h3 class="display-4 lh-130">Known as the first customer choice.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-10"><span class="badge badge-primary badge-pill">Awesome Services</span>
+                <h5 class="h5 lh-180 mt-4 mb-6">Here we mentioned our services. Let's take a look and get in touch with
+                    us.</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-lg-0">
+                <a href="{% url 'services' service='web-development' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Code_2.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Web Development</h5>
+                                <p class="text-muted mb-0">Web designing helps you to make your business/passion online.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="{% url 'services' service='app-development' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Cog_Wheel.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>App Development</h5>
+                                <p class="text-muted mb-0">Apps helps you to manage business online & get custom
+                                    reports. </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="{% url 'services' service='digital-marketing' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Charts_2.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Digital Marketing</h5>
+                                <p class="text-muted mb-0">Through Digital Marketing you can target your customers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="{% url 'services' service='servers' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Ballance.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Hosting/Servers</h5>
+                                <p class="text-muted mb-0">Host your website/apps online and be 24x7 online for your
+                                    customer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 mb-lg-0">
+                <a href="{% url 'services' service='graphic-designing' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Code_2.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Graphic Designing</h5>
+                                <p class="text-muted mb-0">Graphic design helps to attract your customers digitally.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="{% url 'services' service='payment-gateway' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Cog_Wheel.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Payment Gateway</h5>
+                                <p class="text-muted mb-0">Sell products/services online and get instant money from
+                                    customer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="{% url 'services' service='content-writing' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Charts_2.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Content Writing</h5>
+                                <p class="text-muted mb-0">Unique content is the king to reach customer online & also
+                                    for branding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <a href="{% url 'services' service='bulk-sms' %}">
+                    <div class="card hover-translate-y-n10 hover-shadow-lg mb-lg-0">
+                        <div class="card-body">
+                            <div class="pb-4">
+                                <figure style="width:50px"><img alt="Image placeholder"
+                                        src="{% static 'img/svg/icons/Ballance.svg' %}" class="img-fluid" style="height:40px">
+                                </figure>
+                            </div>
+                            <div class="pt-2 pb-3">
+                                <h5>Bulk SMS</h5>
+                                <p class="text-muted mb-0">Send some events news to your customer through sms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class=col-md-4>
+                <div class="card border-0 bg-soft-danger">
+                    <div class="card-body pb-5">
+                        <div class="pt-4 pb-5"><img src="{% static 'img/svg/illustrations/illustration-5.svg' %}"
+                                class="img-fluid img-center" style=height:200px alt=Illustration></div>
+                        <h5 class="h4 lh-130 text-dark mb-3">Unleash you creativity</h5>
+                        <p class="text-dark opacity-6 mb-0">Quick Website UI Kit contains components and pages that are
+                            easy to customize and change.</p>
+                    </div>
+                </div>
+            </div>
+            <div class=col-md-4>
+                <div class="card border-0 bg-soft-success mt-lg-5">
+                    <div class="card-body pb-5">
+                        <div class="pt-4 pb-5"><img src="{% static 'img/svg/illustrations/illustration-6.svg' %}"
+                                class="img-fluid img-center" style=height:200px alt=Illustration></div>
+                        <h5 class="h4 lh-130 text-dark mb-3">Get more results</h5>
+                        <p class="text-dark opacity-6 mb-0">Quick Website UI Kit contains components and pages that are
+                            easy to customize and change.</p>
+                    </div>
+                </div>
+            </div>
+            <div class=col-md-4>
+                <div class="card border-0 bg-soft-warning mt-lg-7">
+                    <div class="card-body pb-5">
+                        <div class="pt-4 pb-5"><img src="{% static 'img/svg/illustrations/illustration-7.svg' %}"
+                                class="img-fluid img-center" style=height:200px alt=Illustration></div>
+                        <h5 class="h4 lh-130 text-dark mb-3">Increase your audience</h5>
+                        <p class="text-dark opacity-6 mb-0">Quick Website UI Kit contains components and pages that are
+                            easy to customize and change.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if CompanyStatsData %}
+<section class="slice slice-lg">
+    <div class="container container-lg">
+        <div class="row row-grid align-items-center">
+            <div class="col-md-6"><span class="badge badge-primary badge-pill">Why choose us</span>
+                <h5 class="h5 lh-180 mt-4 mb-5">Quick is a premium HTML theme that includes adaptable layouts for
+                    various industries and free monthly updates.</h5>
+                <ul class="list-unstyled">
+                    <li class="py-2">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <div class="badge badge-circle badge-primary mr-3"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-check">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg></div>
+                            </div>
+                            <div>
+                                <p class="mb-0">Perfect for modern startups</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <div class="badge badge-circle badge-primary mr-3"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-check">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg></div>
+                            </div>
+                            <div>
+                                <p class="mb-0">Built with customization and ease-of-use at its core</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <div class="badge badge-circle badge-primary mr-3"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-check">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg></div>
+                            </div>
+                            <div>
+                                <p class="mb-0">Quality design and thoughfully crafted code</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            {% for data in CompanyStatsData %}
+            <div class="col-lg-5 ml-lg-auto">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card bg-warning shadow-lg rounded-lg border-0">
+                            <div class="px-4 py-5 text-center">
+                                <div class="h1 font-weight-bolder text-white mb-0">{{data.customers}}</span>
+                                </div>
+                                <h6 class="text-white">Customers</h6>
+                            </div>
+                        </div>
+                        <div class="card shadow-lg rounded-lg border-0">
+                            <div class="px-4 py-5 text-center">
+                                <div class="h1 font-weight-bolder mb-0">{{data.projects}}
+                                </div>
+                                <h6 class="text-warning">Projects</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 pt-lg-6">
+                        <div class="card shadow-lg rounded-lg border-0">
+                            <div class="px-4 py-5 text-center">
+                                <div class="h1 font-weight-bolder mb-0">{{data.happy_clients}}</div>
+                                <h6 class="text-primary">Happy clients</h6>
+                            </div>
+                        </div>
+                        <div class="card bg-primary shadow-lg rounded-lg border-0">
+                            <div class="px-4 py-5 text-center">
+                                <div class="h1 font-weight-bolder text-white mb-0">{{data.enquiry}}
+                                </div>
+                                <h6 class="text-white">Inquiry</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="slice slice-lg">
+    <div class="container-fluid">
+        <div class="jumbotron bg-dark shadow-lg mb-0"><img src="{% static 'img/svg/backgrounds/dot-map.svg' %}"
+                alt="Image placeholder" class="img-fluid img-as-bg opacity-7">
+            <div class="container">
+                <div class="row py-6">
+                    <div class="col-lg-10">
+                        <h2 class="h3 lh-170 text-white"><strong class="text-warning">Dark Mode</strong> brings a whole
+                            new experience to your website. It’s carefully designed to make every element on the screen
+                            easier on your eyes and is seamlessly integrated throughout the theme.</h2>
+                        <div class="mt-5"><a href="#" class="btn btn-lg btn-warning btn-icon mb-3 mb-lg-0 d-none"><span
+                                    class="btn-inner--icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em"
+                                        height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                        class="feather feather-moon">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg> </span><span class="btn-inner--text">Switch to Dark Mode</span> </a>
+                            <a href="#" target="_blank" class="btn btn-lg btn-warning btn-icon mb-3 mb-lg-0"><span
+                                    class="btn-inner--text">Learn more</span> <span class="btn-inner--icon"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="feather feather-arrow-right">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slice slice-lg">
+    <div class="container">
+        <div class="row row-grid justify-content-around align-items-center">
+            <div class="col-lg-5">
+                <h5 class="h2">It works on <strong>any device</strong></h5>
+                <p class="lead my-4">With Quick you get components and examples, including tons of variables that will
+                    help you customize this theme with ease.</p>
+                <ul class="list-unstyled mb-0">
+                    <li class="py-2">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3"><i
+                                        class="fas fa-file-invoice"></i></div>
+                            </div>
+                            <div><span class="h6 mb-0">Perfect for modern startups</span></div>
+                        </div>
+                    </li>
+                    <li class="py-2">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3"><i
+                                        class="fas fa-store-alt"></i></div>
+                            </div>
+                            <div><span class="h6 mb-0">Ready to be customized</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6"><img alt="Image placeholder"
+                    src="{% static 'img/svg/illustrations/illustration-10.svg' %}" class="img-fluid"></div>
+        </div>
+    </div>
+</section>
+{% if TestimonialData %}
+<section class="slice slice-lg delimiter-bottom">
+    <div class=container>
+        <div class="row justify-content-center">
+            <div class=col-lg-9>
+                <div class="text-center mb-5"><span class="badge badge-lg badge-warning badge-pill">Testimonials</span>
+                </div>
+                <div class=swiper-js-container>
+                    <div class=swiper-container data-swiper-items=1 data-swiper-space-between=0>
+                        <div class=swiper-wrapper>
+                            {% if TestimonialData %} {% for dt in TestimonialData %}
+                            <div class=swiper-slide>
+                                <div class=text-center>
+                                    <p class="h4 lh-180 px-4 font-weight-300">"{{dt.message}}"</p>
+                                    <div class="text-center mt-4"><span class="h6 font-weight-light">{{dt.company}} |
+                                            {{dt.designation}}</span> <span class="h6 text-muted">- {{dt.name}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor%} {% else %}
+                            <div class=swiper-slide>
+                                <div class=text-center>
+                                    <p class="h4 lh-180 px-4 font-weight-300">"Amazing looking theme and instantly turns
+                                        your application into a professional looking one. Really shows that
+                                        professionals have built this theme up. Very happy with the way the theme looks
+                                        and the example pages are
+                                        very good."</p>
+                                    <div class="text-center mt-4"><span class="h6 font-weight-light">Saif</span> <span
+                                            class="h6 text-muted">- Bootstrap Marketplace</span></div>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="swiper-button swiper-button-next btn-dark zindex-101"></div>
+                    <div class="swiper-button swiper-button-prev btn-dark zindex-101"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if TrustedByData %}
+<section class="slice slice-lg bg-section-secondary">
+    <div class="container">
+        <div class="row mb-6">
+            <div class="col-md-6"><span class="badge badge-primary badge-pill">Trusted by</span>
+                <h5 class="h5 lh-180 mt-4 mb-xl-6">Quick is a premium HTML theme that includes adaptable layouts for
+                    various industries and free monthly updates.</h5>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-xl-end">
+            {% for data in TrustedByData %}
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="col-xl-2 col-lg-4 col-sm-6">
+                <div class="card hover-shadow-lg hover-translate-y-n3">
+                    <div class="pt-5 h-100 w-50 mx-auto"><img alt="Image placeholder" src="{{data.image.url}}"
+                            class="img-fluid"></div>
+                    <div class="card-body pb-5 text-center">
+                        <p class="px-2 mb-4">{{data.message}}</p><a href="{{data.link}}"
+                            class="link link-underline-dark">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-xl-2 col-lg-4 col-sm-6">
+                <div class="card hover-shadow-lg hover-translate-y-n3 mt-xl-n6">
+                    <div class="pt-5 h-100 w-50 mx-auto"><img alt="Image placeholder" src="{{data.image.url}}"
+                            class="img-fluid"></div>
+                    <div class="card-body pb-5 text-center">
+                        <p class="px-2 mb-4">{{data.message}}</p><a href="{{data.link}}"
+                            class="link link-underline-dark">Learn more</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %} {% block scriptarea %}
+<script></script>
+<script src="{% static 'libs/swiper/dist/js/swiper.min.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,209 @@
+{% extends 'customers/base.html' %} {% load static %} {% block stylearea %}
+<style></style>
+{% endblock %} {% block contentarea %}
+<section class="slice py-5 bg-section-fade">
+    <div class=container>
+        <div class="row align-items-center mb-4">
+            <div class=col>
+                <h1 class="h4 mb-0">Overview</h1>
+            </div>
+        </div>
+        <div class="row mx-n2">
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class=card>
+                    <div class="card-body text-center">
+                        <div class=mb-3>
+                            <div class="icon icon-shape icon-md bg-primary shadow-primary text-white"><i
+                                    class="fas fa-wallet"></i></div>
+                        </div>
+                        <h5 class="h3 font-weight-bolder mb-1">$25,370.00</h5><span
+                            class="d-block text-sm text-muted font-weight-bold">Global Budget <i data-feather=chevron-up
+                                class=text-success></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class=card>
+                    <div class="card-body text-center">
+                        <div class=mb-3>
+                            <div class="icon icon-shape icon-md bg-danger shadow-danger text-white"><i
+                                    class="fas fa-cash-register"></i></div>
+                        </div>
+                        <h5 class="h3 font-weight-bolder mb-1">$5,370.00</h5><span
+                            class="d-block text-sm text-muted font-weight-bold">Today's Income <i
+                                data-feather=chevron-down class=text-danger></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class=card>
+                    <div class="card-body text-center">
+                        <div class=mb-3>
+                            <div class="icon icon-shape icon-md bg-warning shadow-warning text-white"><i
+                                    class="fas fa-shopping-basket"></i></div>
+                        </div>
+                        <h5 class="h3 font-weight-bolder mb-1">$2,370.00</h5><span
+                            class="d-block text-sm text-muted font-weight-bold">Spendings <i data-feather=chevron-down
+                                class=text-danger></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 px-2">
+                <div class=card>
+                    <div class="card-body text-center">
+                        <div class=mb-3>
+                            <div class="icon icon-shape icon-md bg-success shadow-success text-white"><i
+                                    class="fas fa-receipt"></i></div>
+                        </div>
+                        <h5 class="h3 font-weight-bolder mb-1">863</h5><span
+                            class="d-block text-sm text-muted font-weight-bold">Today's Orders <i
+                                data-feather=chevron-up class=text-success></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3 class=h4>Inbox</h3>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <div class="custom-control custom-checkbox"><input type=checkbox class=custom-control-input
+                                id=chkInboxItem1> <label class=custom-control-label for=chkInboxItem1></label></div>
+                        <div class="custom-rating d-none d-sm-inline-block"><input type=checkbox id=chkInboxItemStar1
+                                name=star> <label class=custom-rating-label for=chkInboxItemStar1><span
+                                    class=sr-only>Star</span></label></div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0"><span class="h6 text-sm">Aaliyah
+                            Haworth</span></div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0"><span
+                            class="text-muted text-sm">Dec 25</span></div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static"><a href=#
+                                        class="stretched-link h6 d-block mb-0 lh-140 text-sm font-weight-light">Purpose
+                                        2.0 is now released</a></div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    Today we are happy to announce Bit's public Beta support for Vue components
+                                    between different apps.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <div class="custom-control custom-checkbox"><input type=checkbox class=custom-control-input
+                                id=chkInboxItem2> <label class=custom-control-label for=chkInboxItem2></label></div>
+                        <div class="custom-rating d-none d-sm-inline-block"><input type=checkbox id=chkInboxItemStar2
+                                name=star checked=checked> <label class=custom-rating-label for=chkInboxItemStar2><span
+                                    class=sr-only>Star</span></label></div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0"><span class="h6 text-sm">Mila
+                            Bostock</span></div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0"><span
+                            class="text-muted text-sm">Dec 3</span></div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static"><a href=#
+                                        class="stretched-link h6 d-block mb-0 lh-140 text-sm font-weight-light">Unlock
+                                        your rewards now</a></div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    Bit makes it easier than ever to isolate and share Vue components between
+                                    different projects and apps while keeping changes synced between them</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <div class="custom-control custom-checkbox"><input type=checkbox class=custom-control-input
+                                id=chkInboxItem3> <label class=custom-control-label for=chkInboxItem3></label></div>
+                        <div class="custom-rating d-none d-sm-inline-block"><input type=checkbox id=chkInboxItemStar3
+                                name=star checked=checked> <label class=custom-rating-label for=chkInboxItemStar3><span
+                                    class=sr-only>Star</span></label></div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0"><span class="h6 text-sm">Caroline
+                            Gunn</span></div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0"><span
+                            class="text-muted text-sm">Nov 29</span></div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <div class="col-auto px-0 d-none d-lg-block"><span
+                                class="badge badge-xs text-xs badge-light mr-2">Orders</span></div>
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static"><a href=#
+                                        class="stretched-link h6 d-block mb-0 lh-140 text-sm">You got a new order
+                                        for Purpose</a></div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    Collect your reusable components to Quick to create your very own
+                                    developer-first component design system</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <div class="custom-control custom-checkbox"><input type=checkbox class=custom-control-input
+                                id=chkInboxItem4> <label class=custom-control-label for=chkInboxItem4></label></div>
+                        <div class="custom-rating d-none d-sm-inline-block"><input type=checkbox id=chkInboxItemStar4
+                                name=star> <label class=custom-rating-label for=chkInboxItemStar4><span
+                                    class=sr-only>Star</span></label></div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0"><span class="h6 text-sm">Stacey
+                            Foster</span></div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0"><span
+                            class="text-muted text-sm">Nov 23</span></div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <div class="col-auto px-0 d-none d-lg-block"><span
+                                class="badge badge-xs text-xs badge-light mr-2">Projects</span></div>
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static"><a href=#
+                                        class="stretched-link h6 d-block mb-0 lh-140 text-sm font-weight-light">Start
+                                        over with a new website</a></div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    A room without books is like a text without a soul</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3 hover-shadow-lg">
+                <div class="card-body d-flex align-items-center flex-wrap flex-lg-nowrap py-0">
+                    <div class="col-auto col-lg-1 d-flex align-items-center px-0 pt-3 pt-lg-0 zindex-100">
+                        <div class="custom-control custom-checkbox"><input type=checkbox class=custom-control-input
+                                id=chkInboxItem5> <label class=custom-control-label for=chkInboxItem5></label></div>
+                        <div class="custom-rating d-none d-sm-inline-block"><input type=checkbox id=chkInboxItemStar5
+                                name=star> <label class=custom-rating-label for=chkInboxItemStar5><span
+                                    class=sr-only>Star</span></label></div>
+                    </div>
+                    <div class="col-lg-2 col-8 pl-0 pl-md-2 pt-3 pt-lg-0"><span class="h6 text-sm">George
+                            Browning</span></div>
+                    <div class="col col-lg-1 text-right px-0 order-lg-4 pt-3 pt-lg-0"><span
+                            class="text-muted text-sm">Nov 10</span></div>
+                    <div class="col-12 col-lg-8 d-flex align-items-center position-static pb-3 py-lg-3 px-0">
+                        <div class="col col-lg-11 position-static px-0">
+                            <div class="d-flex flex-wrap flex-lg-nowrap align-items-center">
+                                <div class="col-12 col-lg-auto px-0 position-static"><a href=#
+                                        class="stretched-link h6 d-block mb-0 lh-140 text-sm">Start over with a new
+                                        website</a></div>
+                                <div class="col-12 col-lg pl-0 text-limit text-sm text-muted d-none d-sm-block pl-lg-2">
+                                    A room without books is like a text without a soul</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} {% block scriptarea %}
+<script></script>
+{% endblock %}

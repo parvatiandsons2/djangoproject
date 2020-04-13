@@ -1,0 +1,230 @@
+{% extends 'base.html' %}{% load static %} {% block title %} About Us | Parvati And Sons {% endblock %}
+{% block stylearea %}
+<style></style> {% endblock %} {% block contentarea %}
+<section class="slice slice-lg py-7 py-lg-8 bg-cover bg-size--cover"
+    style="background-image:url({% static 'img/backgrounds/img-1.jpg' %})"><span
+        class="mask bg-gradient-dark opacity-9"></span>
+    <div data-offset-top=#navbar-main>
+        <div class="container pt-xl-4">
+            <div class="row justify-content-center">
+                <div class=col-lg-9>
+                    <h2 class="mb-4 text-center text-white">How can we help?</h2>
+                    <form method="GET" action="{% url 'support:search' %}">
+                        <div class="form-group bg-neutral rounded-pill mb-0 px-2 py-2 shadow">
+                            <div class=row>
+                                <div class=col>
+                                    <div class="input-group input-group-merge shadow-none">
+                                        <div class=input-group-prepend><span
+                                                class="input-group-text bg-transparent border-0"><i
+                                                    data-feather=search></i></span></div><input type=text
+                                            class="form-control form-control-flush shadow-none" name="search"
+                                            value="{{search}}" placeholder="Search for answers ...">
+                                    </div>
+                                </div>
+                                <div class=col-auto><button type="submit"
+                                        class="btn btn-block btn-warning rounded-pill">Search</button></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container position-relative zindex-100">
+            <div class="my-5 text-center">
+                <h6 class="text-white font-weight-light mb-0">or choose a category to quickly find the answer you
+                    need</h6>
+            </div>
+            {% if SupportTypeData %}
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-xl-12">
+                    <div class=row>
+                        {% for data in SupportTypeData %}
+                        <div class="col-xl-3 col-lg-6 mb-xl-n8">
+                            <div class="card hover-translate-y-n10 hover-shadow-lg">
+                                <div class="card-body p-5 text-center">
+                                    <div class=pb-4><img alt="{{data.name}}" src="{{data.image.url}}"
+                                            class="svg-inject img-fluid" style=height:40px></div>
+                                    <div class=pt-2><a href="{% url 'support:type' data.url %}"
+                                            class="h6 stretched-link mb-0">{{data.name}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="shape-container shape-position-bottom"><svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 1000 100"
+            preserveAspectRatio=none>
+            <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
+        </svg></div>
+</section>
+{% if SupportCategoryData %}
+<section class="slice slice-lg" id=sct-faq>
+    <div class=container>
+        <div class="row row-grid">
+            {% if SupportCategoryData %}
+            <div class=col-lg-3>
+                <div data-toggle=sticky data-sticky-offset=50>
+                    <div class=card>
+                        <div class="list-group list-group-flush">
+                            {% for data in SupportCategoryData %}
+                            <a href="{% url 'support:category' data.support_type_url data.url %}" data-scroll-to
+                                data-scroll-to-offset=50
+                                class="list-group-item list-group-item-action d-flex justify-content-between">
+                                <div><i data-feather=check-square class=mr-2></i> <span>{{data.name}}</span></div>
+                                <div><i data-feather=chevron-right></i></div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-lg-8 ml-lg-auto">
+                {% if SupportData %}
+                <div class=mb-5>
+                    {% if typeName %}
+                    <h4 class=mb-4 id=theme-integration>{{typeName}}-{{categoryName}}</h4>
+                    {% endif %}
+                    <div id="{{typeurl}}" class="accordion accordion-spaced">
+                        {% if SupportData %} {% for data in SupportData %}
+                        <div class=card>
+                            <div class="card-header py-4" id="{{data.id}}" data-toggle=collapse role=button
+                                data-target="#{{data.url}}" aria-expanded=false aria-controls="{{data.url}}">
+                                <h6 class=mb-0><i data-feather=file class=mr-3></i>{{data.name}} - {{data.date}}</h6>
+                            </div>
+                            <div id="{{data.url}}" class=collapse aria-labelledby="{{data.id}}"
+                                data-parent="#{{typeurl}}">
+                                <div class=card-body>
+                                    <p>{{data.max_details}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} {% endif %}
+                    </div>
+                </div>
+                {% elif SupportCategoryData  %}
+                {% for data in SupportCategoryData %}
+                <div class=mb-5>
+                    <h4 class=mb-4 id=theme-integration>{{data.name}}</h4>
+                    <div id="{{data.support_type_url}}" class="accordion accordion-spaced">
+                        {% if data.support_data %} {% for dt in data.support_data %}
+                        <div class=card>
+                            <div class="card-header py-4" id="{{dt.id}}" data-toggle=collapse role=button
+                                data-target="#{{dt.url}}" aria-expanded=false aria-controls="{{dt.url}}">
+                                <h6 class=mb-0><i data-feather=file class=mr-3></i>{{dt.name}} - {{dt.date}}</h6>
+                            </div>
+                            <div id="{{dt.url}}" class=collapse aria-labelledby="{{dt.id}}"
+                                data-parent="#{{data.support_type_url}}">
+                                <div class=card-body>
+                                    <p>{{dt.max_details}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="alert alert-warning border-0 shadow-lg fade show mb-0">
+                    <div class="container text-center">
+                        <p class="mb-0">
+                            No Data found!
+                        </p>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+<section class="slice">
+    <div class="container py-5 border-top">
+        <div class="row mb-5 justify-content-center text-center">
+            <div class="col-lg-8 col-md-10">
+                <h2 class="mt-4">Need personal assistance?</h2>
+                <div class="mt-2">
+                    <p class="lead lh-180">If you still didn't find an answer you can always contact us</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body p-5 text-center">
+                        <div class="pb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="128px" height="132px"
+                                viewBox="0 0 128 132" version="1.1" class="injected-svg svg-inject img-fluid"
+                                style="height:40px">
+                                <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+                                <title>Call_Out</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Call_Out" fill-rule="nonzero">
+                                        <path
+                                            d="M127.4,6.6 L127.4,35.5 C127.4,38.9 124.6,41.6 121.3,41.6 C120.9,41.6 120.6,41.6 120.2,41.5 C117.3,41 115.1,38.5 115.1,35.5 L115.1,21.4 L87,49.5 C85.8,50.7 84.2,51.3 82.6,51.3 C82.2,51.3 81.9,51.3 81.5,51.2 C80.3,51 79.2,50.4 78.2,49.5 C75.8,47.1 75.8,43.2 78.2,40.8 L103.6,15.4 L106.3,12.7 L92.2,12.7 C91.8,12.7 91.5,12.7 91.1,12.6 C88.2,12.1 86,9.6 86,6.6 C86,3.2 88.8,0.5 92.1,0.5 L121,0.5 C123.2,0.5 125.1,1.6 126.2,3.3 C127.1,4.2 127.4,5.4 127.4,6.6 Z"
+                                            id="Shape" fill="#21D3AC"></path>
+                                        <g id="Group" transform="translate(0.000000, 4.000000)">
+                                            <g fill="#4988FD" id="Shape">
+                                                <path
+                                                    d="M120.9,111 C120.4,111.8 119.8,112.7 119.1,113.4 C118.9,113.7 118.6,113.9 118.4,114.2 C113,120.4 105.4,125.8 97.1,127.3 C87.9,128.9 77.6,125.3 69.3,121.8 C42.8,110.4 23.2,92.4 10.8,67.6 C8.6,63.2 6.6,58.7 4.9,53.9 C2.9,48.4 1.4,42.7 0.7,36.9 C0.6,35.8 0.4,34.7 0.3,33.7 C-0.5,25 2.5,17.6 8.4,11.3 C10.5,9.1 12.7,7.1 15,5.1 C15.9,4.3 16.8,3.7 17.8,3.1 C23.7,-0.4 31.2,0.1 36.4,4.9 C41.3,9.4 45.9,14.3 50.1,19.4 C54.6,24.8 54.7,32.1 50.9,37.7 C50.4,38.5 49.8,39.3 49.1,40 C47.5,41.8 45.6,43.4 43.9,45 C40.1,48.6 39.6,52.3 42.5,56.7 C49.5,67.4 58.4,76.4 68.5,84.1 C72.3,87 76.1,86.7 79.6,83.5 C81.4,81.9 83.1,80.2 84.9,78.6 C85.8,77.8 86.8,77.1 87.9,76.5 C93.9,73.2 101.4,74 106.5,78.9 C110.9,83.2 115.1,87.6 119.2,92.2 C124,97.7 124.6,105.2 120.9,111 Z">
+                                                </path>
+                                            </g>
+                                            <path
+                                                d="M118.3,114.2 C113.6,119.3 108.6,124.2 101.7,126.2 C97.6,127.4 93.3,127.9 89,127.4 C84.8,126.9 80.5,125.8 76.5,124.5 C75.5,124.2 74.6,123.9 73.7,123.5 C72.2,123 70.7,122.4 69.2,121.7 C42.7,110.3 23.1,92.3 10.7,67.5 C8.5,63.1 6.5,58.6 4.8,53.8 C2.8,48.3 1.3,42.6 0.6,36.8 C36.9,107.6 82.1,117.4 118.3,114.2 Z"
+                                                id="Shape" fill="#2767F4"></path>
+                                            <path
+                                                d="M50.8,37.7 L17.7,3 C23.6,-0.5 31.1,-8.8817842e-16 36.3,4.8 C41.2,9.3 45.8,14.2 50,19.3 C54.4,24.7 54.6,32 50.8,37.7 Z"
+                                                id="Shape" fill="#6097FD"></path>
+                                            <path
+                                                d="M120.9,111 L87.9,76.5 C93.9,73.2 101.4,74 106.5,78.9 C110.9,83.2 115.1,87.6 119.2,92.2 C124,97.7 124.6,105.2 120.9,111 Z"
+                                                id="Shape" fill="#6097FD"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg></div>
+                        <h5>+30 (555) 898-623</h5>
+                        <p class="mt-2 mb-0">Our support team is here for you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body p-5 text-center">
+                        <div class="pb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" width="150px" height="138px"
+                                viewBox="0 0 150 138" version="1.1" class="injected-svg svg-inject img-fluid"
+                                style="height:40px">
+                                <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+                                <title>Email</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Email" fill-rule="nonzero">
+                                        <path
+                                            d="M149.6,0.7 L149.5,1.2 L149.3,2 L122.8,131.4 C122.2,134.3 118.9,135.7 116.4,134.2 L74.2,108.9 C74.2,108.9 74.1,108.8 74.1,108.8 C74,108.8 74,108.7 73.9,108.6 L73.4,109.3 L69.3,114.9 C69.2,115 69.1,115.2 69,115.2 L53.6,136.5 C52.4,138.2 49.7,137.4 49.6,135.3 L48.2,96.5 L48.2,96.4 L3.2,81 C-0.4,79.8 -0.7,74.8 2.7,73.1 L149.6,0.7 Z"
+                                            id="Shape" fill="#6097FD"></path>
+                                        <path
+                                            d="M149.6,1.2 L149.4,2 L149.1,3.3 L73.9,108.7 C73.9,108.7 53.9,136.1 53.9,136.1 C52.4,137.6 61.6,125.8 53.7,136.7 C52.5,138.4 49.8,137.6 49.7,135.5 L48.3,96.7 L149.6,1.2 Z"
+                                            id="Shape" fill="#2767F4"></path>
+                                    </g>
+                                </g>
+                            </svg></div>
+                        <h5><a href="mailto:support@example.com">support@example.com</a></h5>
+                        <p class="mt-2 mb-0">You'll get a reply in 4 to 12 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %} {% block scriptarea %}
+<style></style> {% endblock %}

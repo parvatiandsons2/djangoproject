@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% load static %} {% block stylearea %}
+<style></style>
+{% endblock %} {% block contentarea %}
+<section class="slice slice-lg bg-cover bg-size--cover" style="background-image:url({% static 'img/backgrounds/img-1.jpg' %})"><span class="mask bg-primary opacity-9"></span>
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class=col-lg-9>
+                <h2 class="mb-4 text-center text-white">Search news, events and more.</h2>
+                <form method="GET" action="{% url 'announcement:search' %}">
+                    <div class="form-group bg-neutral rounded-pill mb-0 px-2 py-2 shadow">
+                        <div class=row>
+                            <div class=col>
+                                <div class="input-group input-group-merge shadow-none">
+                                    <div class=input-group-prepend><span class="input-group-text bg-transparent border-0"><i data-feather=search></i></span></div><input name="search" value="{{search}}" type=text class="form-control form-control-flush shadow-none" placeholder="Search for answers ..."></div>
+                            </div>
+                            <div class=col-auto><button type="submit" class="btn btn-block btn-dark rounded-pill">Search</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container position-relative zindex-100">
+        <div class="my-5 text-center">
+            <h6 class="text-white font-weight-light mb-0">or choose a type to quickly find the answer you need</h6>
+        </div>
+        {% if TypeData %}
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-12">
+                <div class=row>
+                    {% for data in TypeData %}
+                    <div class="col-xl-3 col-lg-6 mb-xl-n8">
+                        <div class="card hover-translate-y-n10 hover-shadow-lg">
+                            <div class="card-body p-5 text-center">
+                                <div class=pb-4><img alt="Image placeholder" src="{{data.image.url}}" class="svg-inject img-fluid" style=height:40px></div>
+                                <div class=pt-2><a href="{% url 'announcement:type' data.url  %}" class="h6 stretched-link mb-0">{{ data.name }}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="shape-container shape-position-bottom"><svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 1000 100" preserveAspectRatio=none><path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path></svg></div>
+</section>
+<section class="slice slice-lg" id=sct-faq>
+    <div class=container>
+        <div class="row row-grid">
+            <div class="col-lg-12 ml-lg-auto">
+                {% if AnnouncementData %}
+                <div class=mb-5>
+                    <h4 class=mb-4 id=theme-integration>{{typeName}}-{{categoryName}}</h4>
+                    <div id="{{typeName}}" class="accordion accordion-spaced">
+                        {% if AnnouncementData %} {% for data in AnnouncementData %}
+                        <div class=card>
+                            <div class="card-header py-4" id="{{data.id}}" data-toggle=collapse role=button data-target="#{{data.url}}" aria-expanded=false aria-controls="{{data.url}}">
+                                <h6 class=mb-0><i data-feather=file class=mr-3></i>{{data.name}} - {{data.date}}</h6>
+                            </div>
+                            <div id="{{data.url}}" class=collapse aria-labelledby="{{data.id}}" data-parent="#{{typeName}}">
+                                <div class=card-body>
+                                    <p>{{data.max_details}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %} {% endif %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="alert alert-warning border-0 shadow-lg fade show mb-0">
+                    <div class="container text-center">
+                        <p class="mb-0">
+                            No Data found!
+                        </p>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} {% block scriptarea %}
+<script></script>
+{% endblock %}
