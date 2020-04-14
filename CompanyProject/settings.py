@@ -153,30 +153,30 @@ USE_L10N = True
 USE_TZ = True
 
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    os.path.join(
-        BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
-)
+# GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+#     os.path.join(
+#         BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+# )
 
-# Google Cloud Storage
-if Is_Live == 1:
-    GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
-        BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
-    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
-    GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
-    GS_BUCKET_NAME = 'prnson_bucket1/static'
+# # Google Cloud Storage
+# if Is_Live == 1:
+#     GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
+#         BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+#     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+#     GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
+#     GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
+#     GS_BUCKET_NAME = 'prnson_bucket1/static'
 
-    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-else:
-    GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
-        BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
-    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
-    GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
-    GS_BUCKET_NAME = 'prnson_bucket1/static'
+#     STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# else:
+#     GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
+#         BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+#     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+#     GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
+#     GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
+#     GS_BUCKET_NAME = 'prnson_bucket1/static'
 
-    STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+#     STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 
 # Static files (CSS, JavaScript, Images)
