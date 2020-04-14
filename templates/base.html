@@ -158,7 +158,65 @@
                         <li class="nav-item nav-item-spaced dropdown dropdown-animate" data-toggle=hover><a class=nav-link data-toggle=dropdown href="{% url 'services' %}" aria-haspopup=true aria-expanded=false>Services</a>
                             <div class="dropdown-menu dropdown-menu-xl p-0">
                                 <div class="row no-gutters">
-                                    <div class="col-12 col-lg-6 order-lg-2">
+                                    <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+                                        <div class=dropdown-body>
+                                            <h6 class=dropdown-header>Development</h6>
+                                            <div class="list-group list-group-flush">
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Code_2.svg' %}" class=img-fluid style=height:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='web-development' %}" class="d-block h6 mb-0">Web Development</a> <small class="text-sm text-muted mb-0">A starting point for any
+                                                                scenario.</small></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Like_UI.svg' %}" class=img-fluid style=height:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='app-development' %}" class="d-block h6 mb-0">App Development</a> <small class="text-sm text-muted mb-0">A starting point for any
+                                                                scenario.</small></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex align-items-center">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Online_Store_2.svg' %}" class=img-fluid style=width:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='e-commerce-development' %}" class="d-block h6 mb-0">E-Commerce Development</a>
+                                                            <small class="text-sm text-muted mb-0">Account management
+                                                                made easy.</small></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Ballance.svg' %}" class=img-fluid style=height:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='hosting-server' %}" class="d-block h6 mb-0">Hosting/Server</a> <small class="text-sm text-muted mb-0">A starting point for any
+                                                                scenario.</small></div>
+                                                    </div>
+                                                </div>
+                                                <h6 class="dropdown-header mt-4">Business Promotion</h6>
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex align-items-center">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Apps.svg' %}" class=img-fluid style=width:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='digital-marketing' %}" class="d-block h6 mb-0">Digital Marketing</a> <small class="text-sm text-muted mb-0">Get your dashboard nice
+                                                                and easy.</small></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex align-items-center">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/DOC_File.svg' %}" class=img-fluid style=width:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='content-writing' %}" class="d-block h6 mb-0">Content Writing</a> <small class="text-sm text-muted mb-0">A good place to start
+                                                                from</small></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group-item border-0">
+                                                    <div class="media d-flex align-items-center">
+                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Package_Opened.svg' %}" class=img-fluid style=width:40px></figure>
+                                                        <div class="media-body ml-3"><a href="{% url 'services' service='graphic-designing' %}" class="d-block h6 mb-0">Graphic Designing</a> <small class="text-sm text-muted mb-0">A good place to start
+                                                                from</small></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
                                         <div class="dropdown-body dropdown-body-right bg-dropdown-secondary h-100">
                                             <h6 class=dropdown-header>Top Selling Products</h6>
                                             <div class="list-group list-group-flush">
@@ -233,64 +291,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6 order-lg-1 mt-4 mt-lg-0">
-                                        <div class=dropdown-body>
-                                            <h6 class=dropdown-header>Development</h6>
-                                            <div class="list-group list-group-flush">
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Code_2.svg' %}" class=img-fluid style=height:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='web-development' %}" class="d-block h6 mb-0">Web Development</a> <small class="text-sm text-muted mb-0">A starting point for any
-                                                                scenario.</small></div>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Like_UI.svg' %}" class=img-fluid style=height:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='app-development' %}" class="d-block h6 mb-0">App Development</a> <small class="text-sm text-muted mb-0">A starting point for any
-                                                                scenario.</small></div>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex align-items-center">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Online_Store_2.svg' %}" class=img-fluid style=width:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='e-commerce-development' %}" class="d-block h6 mb-0">E-Commerce Development</a>
-                                                            <small class="text-sm text-muted mb-0">Account management
-                                                                made easy.</small></div>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Ballance.svg' %}" class=img-fluid style=height:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='hosting-server' %}" class="d-block h6 mb-0">Hosting/Server</a> <small class="text-sm text-muted mb-0">A starting point for any
-                                                                scenario.</small></div>
-                                                    </div>
-                                                </div>
-                                                <h6 class="dropdown-header mt-4">Business Promotion</h6>
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex align-items-center">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Apps.svg' %}" class=img-fluid style=width:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='digital-marketing' %}" class="d-block h6 mb-0">Digital Marketing</a> <small class="text-sm text-muted mb-0">Get your dashboard nice
-                                                                and easy.</small></div>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex align-items-center">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/DOC_File.svg' %}" class=img-fluid style=width:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='content-writing' %}" class="d-block h6 mb-0">Content Writing</a> <small class="text-sm text-muted mb-0">A good place to start
-                                                                from</small></div>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-item border-0">
-                                                    <div class="media d-flex align-items-center">
-                                                        <figure style=width:40px><img alt="Image placeholder" src="{% static 'img/svg/icons/Package_Opened.svg' %}" class=img-fluid style=width:40px></figure>
-                                                        <div class="media-body ml-3"><a href="{% url 'services' service='graphic-designing' %}" class="d-block h6 mb-0">Graphic Designing</a> <small class="text-sm text-muted mb-0">A good place to start
-                                                                from</small></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </li>
