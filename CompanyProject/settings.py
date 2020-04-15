@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-Is_Live = 1
+Is_Live = 0
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -32,12 +32,13 @@ if Is_Live == 1:
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['35.200.244.164', '127.0.0.1']
+ALLOWED_HOSTS = ['35.200.244.164', '127.0.0.1', '192.168.43.109']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'Finance.apps.FinanceConfig',
     'support.apps.SupportConfig',
     'customers.apps.CustomersConfig',
     'project.apps.ProjectConfig',
@@ -153,13 +154,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    os.path.join(
-        BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
-)
-
 # Google Cloud Storage
 if Is_Live == 1:
+
+    GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+        os.path.join(
+            BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+    )
+
     GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
         BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
 
@@ -169,17 +171,18 @@ if Is_Live == 1:
     GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
     GS_BUCKET_NAME = 'prnson_bucket1'
 
-    #xFlkwZMHKEzX33QzOu+774Ec5xD/ZpWfqT07wUMh
+    # xFlkwZMHKEzX33QzOu+774Ec5xD/ZpWfqT07wUMh
 
     # STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 else:
-    GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
-        BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
-    
-    DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-    GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
-    GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
-    GS_BUCKET_NAME = 'prnson_bucket1'
+    pass
+    # GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
+    #     BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+
+    # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+    # GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
+    # GS_SECRET_ACCESS_KEY = 'wiOwL/zcWpHAZ9HKSuYl5wvUdEIn+AXc3tVJWbe2'
+    # GS_BUCKET_NAME = 'prnson_bucket1'
 
     # STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 

@@ -91,7 +91,10 @@ static/
 db.sqlite3
 
 mysqlclient-1.4.6-cp38-cp38-win32.whl
+staticwebsite-274104-a13c760a65fd.json
 app.yaml
 .gcloudignore
 
 media/
+
+staticwebsite.json
