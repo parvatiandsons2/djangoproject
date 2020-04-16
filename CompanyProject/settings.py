@@ -28,18 +28,16 @@ SECRET_KEY = '7(@iyr&+5enzbmwyg+o6$&vhy@enhgp*w8n+bis1gt&l4^6=g#'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 if Is_Live == 1:
-    DEBUG = True
+    DEBUG = False
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['35.200.244.164', '127.0.0.1', '192.168.43.109', 'www.rahihotel.in', 'rahihotel.in']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.sites',
-    'django.contrib.flatpages',
     'Finance.apps.FinanceConfig',
     'support.apps.SupportConfig',
     'customers.apps.CustomersConfig',
