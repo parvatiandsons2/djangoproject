@@ -96,5 +96,3 @@ app.yaml
 .gcloudignore
 
 media/
-
-staticwebsite.json

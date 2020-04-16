@@ -161,11 +161,11 @@ if Is_Live == 1:
 
     GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
         os.path.join(
-            BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+            BASE_DIR, 'staticwebsite.json')
     )
 
     GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
-        BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+        BASE_DIR, 'staticwebsite.json')
 
     DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
@@ -179,7 +179,7 @@ if Is_Live == 1:
 else:
     pass
     # GOOGLE_APPLICATION_CREDENTIALS = os.path.join(
-    #     BASE_DIR, 'staticwebsite-274104-a13c760a65fd.json')
+    #     BASE_DIR, 'staticwebsite.json')
 
     # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
     # GS_ACCESS_KEY_ID = 'GOOG1EVPUZAMBWWHYZVOSVOQT5JAIFXFHRBK652MGE4TZKMMXIW7Y3LWUW5EQ'
