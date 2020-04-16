@@ -16,7 +16,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-Is_Live = 0
+Is_Live = 1
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -28,16 +28,18 @@ SECRET_KEY = '7(@iyr&+5enzbmwyg+o6$&vhy@enhgp*w8n+bis1gt&l4^6=g#'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 if Is_Live == 1:
-    DEBUG = False
+    DEBUG = True
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['35.200.244.164', '127.0.0.1', '192.168.43.109']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'Finance.apps.FinanceConfig',
     'support.apps.SupportConfig',
     'customers.apps.CustomersConfig',

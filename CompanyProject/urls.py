@@ -5,7 +5,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 from .views import index, about, services, contactus
 
-
 admin.site.site_header = "CRM Admin Portal"
 admin.site.site_title = "CRM Admin Portal"
 admin.site.index_title = "Welcome to CRM Admin Portal"
